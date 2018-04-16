@@ -39,7 +39,7 @@ class apiclass
     }
 }
 $obj=new apiclass();
-if($_REQUEST['action']=='insstud'){
+/*if($_REQUEST['action']=='insstud'){
 //    $data = json_decode(file_get_contents("php://input"));
 //    echo json_encode($data);
     $nm=$_REQUEST['nm'];
@@ -60,4 +60,15 @@ elseif ($_REQUEST[action]=='updstud'){
     $nm=$_REQUEST['nm'];
     $ad=$_REQUEST['ad'];
     $obj->updstud($id,$nm,$ad);
+}*/
+$r=$_REQUEST['action'];
+switch ($r){
+    case 'insstud':
+        $nm=$_REQUEST['nm'];
+        $ad=$_REQUEST['ad'];
+        $obj->insertStud($nm,$ad);
+        break;
+    case 'viewstud':
+        $obj->viewstud();
+        break;
 }
